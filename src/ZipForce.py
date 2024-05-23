@@ -32,6 +32,8 @@ while True:
 
 # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
 with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
+        print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
+        time.sleep(3)
         for kata_sandi in wordlist:
                 kata_sandi = kata_sandi.strip()
 
