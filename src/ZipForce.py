@@ -12,17 +12,6 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-os.system("clear")
-
-print(f"""{b}
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
- Program   : ZipForce
- Deskripsi : Ekstrak file zip menggunakan wordlist
- Pembuat   : Rofi
- Github    : github.com/rofidoang03/zipforce
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@
-{r}""")
-
 # Meminta nama file zip dari pengguna
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
@@ -43,7 +32,6 @@ while True:
 
 # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
 with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
-        print("")
         time.sleep(3)
         for kata_sandi in wordlist:
                 kata_sandi = kata_sandi.strip()
@@ -57,4 +45,3 @@ with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                                 break
                 except Exception as e:
                         print(f"{m}File zip gagal diekstrak dengan kata sandi: {kata_sandi}{r}")
-print("")
