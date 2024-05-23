@@ -27,12 +27,11 @@ while True:
         if not os.path.exists(file_wordlist):
                 print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
         else:
-                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
+                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}\n")
                 break
 
 # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
 with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
-        time.sleep(3)
         for kata_sandi in wordlist:
                 kata_sandi = kata_sandi.strip()
 
