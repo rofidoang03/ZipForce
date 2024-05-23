@@ -27,7 +27,7 @@ while True:
         if not os.path.exists(file_wordlist):
                 print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
         else:
-                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}\n")
+                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
                 break
 
 # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
