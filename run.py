@@ -1,6 +1,6 @@
 import os
+import time
 import colorama
-import datetime
 import pyzipper
 
 # Mengatur warna teks menggunakan modul colorama
@@ -12,50 +12,48 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-# Mendapatkan waktu saat ini
-waktu_saat_ini = datetime.datetime.now()
-format_waktu = waktu_saat_ini.strftime("%d-%m-%Y %H:%M:%S")
+os.system("clear")
 
-# Menampilkan informasi program
-print("""
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
- Program : Ekstrak file zip menggunakan wordlist
- Pembuat : Rofi
- Github  : github.com/rofidoang03/zipforce
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@
-""")
+print(f"""{b}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ Program   : ZipForce
+ Deskripsi : Ekstrak file zip menggunakan wordlist
+ Pembuat   : Rofi
+ Github    : github.com/rofidoang03/zipforce
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@
+{r}""")
 
 # Meminta nama file zip dari pengguna
 while True:
-    file_zip = input(f"{c}[»] {p}Masukkan nama file zip: ")
-    if not os.path.exists(file_zip):
-        print(f"{m}[Error] {p}File {file_zip} tidak ditemukan.{r}")
-    else:
-        break
+        file_zip = input(f"{k}[?] {p}Nama file zip: ")
+        if not os.path.exists(file_zip):
+                print(f"{m}[x] {p}File {file_zip} tidak ditemukan.{r}")
+        else:
+                print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
+                break
 
 # Meminta nama file wordlist dari pengguna
 while True:
-    file_wordlist = input(f"{c}[»] {p}Masukkan nama file wordlist: ")
-    if not os.path.exists(file_wordlist):
-        print(f"{m}[Error] {p}File {file_wordlist} tidak ditemukan.{r}")
-    else:
-        break
+        file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
+        if not os.path.exists(file_wordlist):
+                print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
+        else:
+                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
+                break
 
 # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
-with open(file_wordlist, 'r', encoding="utf-8", errors="ignore") as wordlist:
-    print(f"\n{b}[*] {p}Dimulai pada: {format_waktu}{r}\n")
-    for kata_sandi in wordlist:
-        kata_sandi = kata_sandi.strip()
-        print(f"{p}Mencoba mengekstrak file zip dengan kata sandi: {k}{kata_sandi}{r}")
+with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
+        print("")
+        time.sleep(3)
+        for kata_sandi in wordlist:
+                kata_sandi = kata_sandi.strip()
 
-        # Mengekstrak file zip dengan kata sandi
-        try:
-            with pyzipper.AESZipFile(file_zip) as zf:
-                zf.pwd = kata_sandi.encode('utf-8')
-                zf.extractall()
-            print(f"{p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
-            break
-        except Exception as e:
-            print(f"{p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
-    print(f"\n{b}[*] {p}Berakhir pada: {format_waktu}{r}\n")
-  
+                # Mengekstrak file zip dengan kata sandi
+                try:
+                        with pyzipper.AESZipFile(file_zip) as fz:
+                                fz.pwd = kata_sandi.encode('latin-1')
+                                fz.extractall()
+                                print(f"{h}File zip berhasil diekstrak dengan kata sandi: {kata_sandi}{r}")
+                                break
+                except Exception as e:
+                        print(f"{m}File zip gagal diekstrak dengan kata sandi: {kata_sandi}{r}")
