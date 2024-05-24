@@ -1,0 +1,8 @@
+Cara menginstal ZipForce
+------------------------
+
+1. apt-get update -y
+2. apt-get install python3
+3. apt-get install python3-pip
+4. jdjdjdjd
+5. 
