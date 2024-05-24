@@ -20,9 +20,9 @@ function install_dependency(){
 }
 
 function install_requirements_python3(){
-        python3 -m venv $HOME/ZipForce/modules
-        source $HOME/ZipForce/modules/bin/activate
-        pip3 install -r $HOME/ZipForce/requirements.txt
+        python3 -m venv /root/ZipForce/modules
+        source /root/ZipForce/modules/bin/activate
+        pip3 install -r /root/ZipForce/requirements.txt
 }
 
 function install_Zip_Force(){
