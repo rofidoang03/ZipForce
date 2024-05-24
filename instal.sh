@@ -25,7 +25,7 @@ function install_requirements_python3(){
         pip3 install -r /root/ZipForce/requirements.txt
 }
 
-function install_Zip_Force(){
+function install_ZipForce(){
         while true; do
                 read -p "Apakah Anda ingin menginstal ZipForce [Y/n] " nanya
                 if [[ "${nanya}" == "y" ]] || [[ "${nanya}" == "Y" ]]; then
