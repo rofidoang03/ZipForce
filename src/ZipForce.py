@@ -54,27 +54,29 @@ def ekstrak_file_zip(file_zip, file_wordlist):
                                         fz.extractall()
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                         break
-                        except pyzipper.BadZipFile:
-                                print(f"{m}[x] {p}File {file_zip} bukan file zip.{r}")
                         except Exception as e:
-                                print(f"{m}[x] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
+                                print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
 
 # Meminta nama file zip dari pengguna
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
-        if not os.path.exists(file_zip):
-                print(f"{m}[x] {p}File {file_zip} tidak ditemukan.{r}")
+        if os.path.exists(file_zip):
+                if file_zip.endswith('.zip'):
+                        print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
+                        break
+                else:
+                        print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
         else:
-                print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
-                break
+                print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
+
 
 # Meminta nama file wordlist dari pengguna
 while True:
         file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
-        if not os.path.exists(file_wordlist):
-                print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
-        else:
+        if os.path.exists(file_wordlist):
                 print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
                 break
+        else:
+                print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
 
 ekstrak_file_zip(file_zip, file_wordlist)
