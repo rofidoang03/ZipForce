@@ -12,6 +12,15 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
+print("""
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[] Program     : ZipForce                                                                               []
+[] Deskripsi   : Ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.  []
+[] Dibuat oleh : Rofi                                                                                   []
+[] Github      : https://github.com/rofidoang/ZipForce                                                  []
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+""")
+
 # Meminta nama file zip dari pengguna
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
