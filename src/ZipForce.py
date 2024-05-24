@@ -40,6 +40,26 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
+def ekstrak_file_zip(file_zip, file_wordlist):
+        # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
+        with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
+                print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
+                time.sleep(3)
+                for kata_sandi in wordlist:
+                        kata_sandi = kata_sandi.strip()
+
+                        # Mengekstrak file zip dengan kata sandi
+                        try:
+                                with pyzipper.AESZipFile(file_zip) as fz:
+                                        fz.pwd = kata_sandi.encode('latin-1')
+                                        fz.extractall()
+                                        print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
+                                        break
+                        except pyzipper.BadZipFile:
+                                print(f"{m}[x] {p}File {file_zip} bukan file zip.{r}")
+                        except Exception as e:
+                                print(f"{m}[x] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
+
 # Meminta nama file zip dari pengguna
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
@@ -58,19 +78,4 @@ while True:
                 print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
                 break
 
-# Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
-with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
-        print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
-        time.sleep(3)
-        for kata_sandi in wordlist:
-                kata_sandi = kata_sandi.strip()
-
-                # Mengekstrak file zip dengan kata sandi
-                try:
-                        with pyzipper.AESZipFile(file_zip) as fz:
-                                fz.pwd = kata_sandi.encode('latin-1')
-                                fz.extractall()
-                                print(f"{h}File zip berhasil diekstrak dengan kata sandi: {kata_sandi}{r}")
-                                break
-                except Exception as e:
-                        print(f"{m}File zip gagal diekstrak dengan kata sandi: {kata_sandi}{r}")
+ekstrak_file_zip(file_zip, file_wordlist)
