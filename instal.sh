@@ -1,7 +1,10 @@
 #!/bin/bash
 
 function cek_root(){
-
+        if [[ "$EUID" -ne 0 ]]; then
+                echo "[x] Script ini harus dijalankan sebagai root."
+                exit 1
+        fi
 }
 
 function install_dependency(){
@@ -27,7 +30,7 @@ function install_Zip_Force(){
                 read -p "Apakah Anda ingin menginstal ZipForce [Y/n] " nanya
                 if [[ "${nanya}" == "y" ]] || [[ "${nanya}" == "Y" ]]; then
                         cek_root
-                        cek_koneksi_internet
+                        # cek_koneksi_internet
                         install_dependency
                         install_requirements_python3
                         break
