@@ -2,7 +2,7 @@
 
 Untuk menginstal ZipForce sangatlah mudah Anda tinggal Copy Paste perintah yang ada dibawah ini:
 
-> Sebelum menginstal ZipForce pastikan Anda sudah dalam mode super user (root).
+> Pastikan Anda sudah dalam mode super user (root).
 
 ## Perintah 
 
