@@ -15,22 +15,34 @@ apt-get update -y
 2. Menginstal dependensi yang diperlukan ZipForce 
 
 ```
-apt-get install python3 -y ; apt-get install python3-pip -y ; apt-get install python3.11-venv -y
+apt-get install python3 -y ; apt-get install python3-pip -y ; apt-get install python3.11-venv -y ; apt-get install git -y
 ```
 
-3. Membuat lingkungan virtual Python.
+3. Meng-kloning repositori ZipForce dari Github 
+
+```
+git clone https://github.com/rofidoang03/ZipForce
+```
+
+4. Pindah ke direktori ZipForce
+
+```
+cd ZipForce
+```
+
+5. Membuat lingkungan virtual Python.
 
 ```
 python3 -m venv /root/ZipForce/modules
 ```
 
-4. Mengaktifkan lingkungan virtual Python.
+6. Mengaktifkan lingkungan virtual Python.
 
 ```
 source /root/ZipForce/modules/bin/activate
 ```
 
-5. Menginstal semua paket Python yang diperlukan.
+7. Menginstal semua paket Python yang diperlukan.
 
 ```
 pip3 install -r /root/ZipForce/requirements.txt
