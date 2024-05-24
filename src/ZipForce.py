@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # Nama Program............: ZipForce
 # Deskripsi Program.......: Ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.
 # Pembuat Program.........: Rofi
