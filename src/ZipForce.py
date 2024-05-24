@@ -1,3 +1,8 @@
+# Nama Program............: ZipForce
+# Deskripsi Program.......: Ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.
+# Pembuat Program.........: Rofi
+# Github..................: https://github.com/rofidoang03/ZipForce
+
 import os
 import time
 import colorama
@@ -11,15 +16,6 @@ c = colorama.Fore.LIGHTCYAN_EX
 p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
-
-print("""
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[] Program     : ZipForce                                                                               []
-[] Deskripsi   : Ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.  []
-[] Dibuat oleh : Rofi                                                                                   []
-[] Github      : https://github.com/rofidoang/ZipForce                                                  []
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-""")
 
 # Meminta nama file zip dari pengguna
 while True:
