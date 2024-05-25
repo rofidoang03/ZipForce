@@ -94,16 +94,16 @@ if __name__ == "__main__":
         while True:
                 token = input("Masukkan token untuk menjalankan ZipForce: ")
 
-        hash = hashlib.sha1()
-        hash.update(token.encode("latin-1"))
-        token_hash = sha1.hexdigest()
+                hash = hashlib.sha1()
+                hash.update(token.encode("latin-1"))
+                token_hash = sha1.hexdigest()
 
-        valid_token_hash = "7c222fb2927d828af22f592134e8932480637c0d"
+                valid_token_hash = "7c222fb2927d828af22f592134e8932480637c0d"
         
-        if token != valid_token_hash:
-                print("Token tidak valid. Silahkan coba lagi!")
-        else
-                break
+                if token != valid_token_hash:
+                        print("Token tidak valid. Silahkan coba lagi!")
+                else:
+                        break
                 
         banner()
         
