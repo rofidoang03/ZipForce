@@ -39,22 +39,6 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-def ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist):
-        with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
-                print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
-                time.sleep(3)
-                for kata_sandi in wordlist:
-                        kata_sandi = kata_sandi.strip()
-
-                        try:
-                                with pyzipper.AESZipFile(file_zip) as fz:
-                                        fz.pwd = kata_sandi.encode('latin-1')
-                                        fz.extractall(path=nama_folder_yang_diekstrak)
-                                        print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
-                                        break
-                        except Exception as e:
-                                print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
-                                
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
         if os.path.exists(file_zip):
@@ -83,5 +67,17 @@ nama_folder_yang_diekstrak = os.path.splitext(file_zip)[0]
 
 if not os.path.exists(nama_folder_yang_diekstrak):
         os.makedirs(nama_folder_yang_diekstrak)
-        
-ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist)
+
+with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
+        print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
+        time.sleep(3)
+        for kata_sandi in wordlist:
+                kata_sandi = kata_sandi.strip()
+                try:
+                        with pyzipper.AESZipFile(file_zip) as fz:
+                                fz.pwd = kata_sandi.encode('latin-1')
+                                fz.extractall(path=nama_folder_yang_diekstrak)
+                                print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
+                                break
+                except Exception as e:
+                        print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
