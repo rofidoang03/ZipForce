@@ -49,7 +49,7 @@ def ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist):
                         try:
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         fz.pwd = kata_sandi.encode('latin-1')
-                                        fz.extractall(path=nama_folder)
+                                        fz.extractall(path=nama_folder_yang_diekstrak)
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                         break
                         except Exception as e:
@@ -78,8 +78,10 @@ folder_keluaran = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 
 if not os.path.exists(folder_keluaran):
         os.makedirs(folder_keluaran)
-        nama_folder_yang_diekstrak = os.path.splitext(file_zip)[0]
-        if not os.path.exists(nama_folder_yang_diekstrak):
-                os.makedirs(nama_folder_yang_diekstrak)
 
+nama_folder_yang_diekstrak = os.path.splitext(file_zip)[0]
+
+if not os.path.exists(nama_folder_yang_diekstrak):
+        os.makedirs(nama_folder_yang_diekstrak)
+        
 ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist)
