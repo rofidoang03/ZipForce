@@ -53,3 +53,5 @@ source modules/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
+
+<p align="right"><a href="$">Kembali ke Halaman utama</a></p>
