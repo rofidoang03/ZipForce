@@ -61,7 +61,7 @@ def bruteforce_attack(file_zip, file_log, folder, panjang_min=1, panjang_max=16)
                                         fz.pwd = kata_sandi.encode("latin-1")
                                         fz.extractall(path = folder)
                                         with open(file_log, 'a') as log:
-                                                log.write(f"{password}:{file_zip}:{password}\n")
+                                                log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: '{h}{kata_sandi}{p}'{r}")
                                         print(f"{h}[+] {p}Isi file zip yang berhasil diekstrak:{r}")
                                         for file in list_file:
