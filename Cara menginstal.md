@@ -54,4 +54,4 @@ source modules/bin/activate
 pip3 install -r requirements.txt
 ```
 
-<p align="right"><a href="$">Kembali ke Halaman utama</a></p>
+<p align="right"><a href="https://github.com/rofidoang03/ZipForce/blob/main/README.md">Kembali ke Halaman utama</a></p>
