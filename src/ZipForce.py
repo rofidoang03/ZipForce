@@ -48,18 +48,16 @@ def banner():
 {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
 """)
 
-def bruteforce_attack(file_zip, file_log, folder, panjang_min=1, panjang_max=16):
-        karakter = string.printable.strip()
-        for panjang in range(panjang_min, panjang_max + 1):
-                kombinasi = itertools.product(karakter, repeat=panjang)
-                for k in kombinasi:
-                        kata_sandi = ''.join(k)
-
-                        try:
-                                with pyzipper.AESZipFile(file_zip) as fz:
-                                        list_file = fz.namelist()
-                                        fz.pwd = kata_sandi.encode("latin-1")
-                                        fz.extractall(path = folder)
+def bruteforce_attack(file_zip, file_log, folder, panjang_kata_sandi):
+        karakter = string.ascii_letters + string.digits + string.punctuation
+        with pyzipper.AESZipFile(file_zip) as zf:
+                for panjang in range(1, panjang_kata_sandi + 1):
+                        for percobaan in itertools.product(karakter, repeat=panjang_kata_sandi):
+                                kata_sandi = ''.join(percobaan)
+                                try:
+                                        list_file = zf.namelist()
+                                        zf.pwd = kata_sandi.encode("latin-1")
+                                        zf.extractall(path=folder)
                                         with open(file_log, 'a') as log:
                                                 log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: '{h}{kata_sandi}{p}'{r}")
@@ -68,11 +66,11 @@ def bruteforce_attack(file_zip, file_log, folder, panjang_min=1, panjang_max=16)
                                                 print(f"    {h}[+] {p}{file}{r}")
                                         print(f"{h}[+] {p}Isi file zip yang berhasil diekstrak disimpan di folder '{h}Hasil Ekstraksi'{p}.{r}")
                                         print(f"{h}[+] {p}Kata sandi yang berhasil ditemukan disimpan di file Log: '{h}ZipForce.log{p}'.{r}")
-                                        break
-                        except Exception as e:
-                                print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: '{m}{kata_sandi}{p}'{r}")
-                                
-
+                                        return kata_sandi
+                                except Exception as e:
+                                    print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: '{m}{kata_sandi}{p}'{r}")
+                                    pass
+                        
 def dictionary_attack(file_zip, file_log, folder, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
@@ -98,7 +96,7 @@ def dictionary_attack(file_zip, file_log, folder, file_wordlist):
                                         break
                         except Exception as e:
                                 print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: '{m}{kata_sandi}{p}'{r}")
-
+                                
 if __name__ == "__main__":  
         
         # File untuk menyimpan Log ZipForce.
@@ -129,16 +127,6 @@ if __name__ == "__main__":
                                 print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
                 else:
                         print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
-        # Memasukkan nama file wordlist.
-
-        while True:
-                file_wordlist = input(f"{c}[»] {p}Masukkan jalur file wordlist: ")
-                if os.path.exists(file_wordlist):
-                        print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
-                        break
-                else:
-                        print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}") 
-
 
         while True:
                 jenis_teknik = ["Bruteforce Attack", "Dictionary Attack"]
@@ -152,10 +140,22 @@ if __name__ == "__main__":
                 input_jenis_teknik = input("Masukkan teknik yang ingin digunakan untuk mengekstrak file zip : ")
 
                 if input_jenis_teknik == "1":
-                        bruteforce_attack(file_zip, file_log, folder, panjang_min=1, panjang_max=16)
+                        bruteforce_attack(file_zip, file_log, folder, panjang_kata_sandi=16)
 
                 elif input_jenis_teknik == "2":
+                        # Memasukkan nama file wordlist.
+                        while True:
+                                file_wordlist = input(f"{c}[»] {p}Masukkan jalur file wordlist: ")
+                                if os.path.exists(file_wordlist):
+                                        print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
+                                        break
+                                else:
+                                        print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}") 
+
                         dictionary_attack(file_zip, file_log, folder, file_wordlist)
 
                 else
                         print(f"{m}[-] {p}Teknik {input_jenis_teknik} tidak tersedia. Silahkan pilih lagi!{r}")
+        
+        
+        
