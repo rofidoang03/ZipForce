@@ -7,6 +7,15 @@
 import os
 import sys
 import time
+
+# Jika terjadi error saat menginstal modul
+# Gunakan perintah ini:
+# 1. python3 -m venv modules
+# 2. source modules/bin/activate
+# 3. pip3 install <modules>
+#
+# Misalnya: pip3 install colorama 
+
 try:
         import colorama
 except ImportError:
