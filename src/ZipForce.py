@@ -87,4 +87,4 @@ nama_folder = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 if not os.path.exists(nama_folder):
     os.makedirs(nama_folder)
 
-ekstrak_file_zip(file_zip, file_wordlist)
+ekstrak_file_zip(file_zip, nama_folder, file_wordlist)
