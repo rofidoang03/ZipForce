@@ -76,7 +76,7 @@ if __name__ == "__main__":
         # Membuat file 'ZipForce.log' jika belum ada
         if not os.path.exists(file):
                 with open(file, 'w') as f:
-                        f.write("ZipForcre Log:\n")                       
+                        f.write("[ZipForcre Log]\n")                       
         
         # Membuat folder 'Hasil Ekstraksi' jika belum ada.
         if not os.path.exists(folder):
