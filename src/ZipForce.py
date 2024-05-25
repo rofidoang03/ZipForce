@@ -90,7 +90,7 @@ if __name__ == "__main__":
         
         # Memasukkan nama file zip.
         while True:
-                file_zip = input(f"{k}[?] {p}Nama file zip: ")
+                file_zip = input(f"{c}[»] {p} Masukkan jalur file zip : ")
                 if os.path.exists(file_zip):
                         if file_zip.endswith('.zip'):
                                 print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
         # Memasukkan nama file wordlist.
         while True:
-                file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
+                file_wordlist = input(f"{c}[»] {p}Masukkan jalur file wordlist: ")
                 if os.path.exists(file_wordlist):
                         print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
                         break
