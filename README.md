@@ -6,4 +6,8 @@ ZipForce</h1>
 
 ## Instalasi 
 
-Instruksi instalasi tersedia [disini](https://github.com/rofidoang03/ZipForce/blob/main/Cara%20menginstal.md).
+Instruksi instalasi ZipForce tersedia [disini](https://github.com/rofidoang03/ZipForce/blob/main/Cara%20menginstal.md).
+
+## Penggunaan
+
+Instruksi cara penggunaan ZipForce tersedia [disini]().
