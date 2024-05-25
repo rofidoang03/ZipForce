@@ -17,17 +17,21 @@ import time
 # Misalnya: pip3 install colorama 
 
 try:
+        # Modul colorama digunakan untuk menambahkan warna 
+        # dan gaya ke teks di terminal.
         import colorama
 except ImportError:
         print("Error: Modul colorama belum diinstal. Mohon instal dengan menjalankan perintah 'pip3 install colorama'.")
         sys.exit(1)
 try:
+        # Modul pyzipper digunakan  untuk mengompresi 
+        # dan mengekstrak file dan data menggunakan format ZIP
         import pyzipper
 except ImportError:
         print("Error: Modul pyzipper belum diinstal. Mohon instal dengan menjalankan perintah 'pip3 install pyzipper'.")
         sys.exit(1)
 
-# Variabel untuk mengatur warna output menggunakan modul colorama
+# Variabel untuk mengatur warna output teks menggunakan modul colorama
 h = colorama.Fore.LIGHTGREEN_EX
 b = colorama.Fore.LIGHTBLUE_EX
 m = colorama.Fore.LIGHTRED_EX
