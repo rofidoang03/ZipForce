@@ -1,7 +1,7 @@
-Cara menjalankan ZipForce
+Penggunaan ZipForce
 -------------------------
 
-Untuk menjalankan ZipForce sangatlah mudah Anda tinggal menjalankan perintah yang ada dibawah ini:
+Untuk menggunakan ZipForce sangatlah mudah Anda tinggal menjalankan perintah yang ada dibawah ini:
 
 > Pastikan Anda sudah berada di dalam  folder ZipForce
 
