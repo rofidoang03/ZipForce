@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Nama Program............: ZipForce
 # Deskripsi Program.......: Ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.
 # Pembuat Program.........: Rofi
@@ -79,9 +80,11 @@ while True:
         else:
                 print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
 
-nama_foler = "$HOME/ZipForce/Hasil Ekstraksi"
+# Menentukan nama folder hasil ekstraksi
+nama_folder = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 
+# Membuat folder jika belum ada
 if not os.path.exists(nama_folder):
-        os.makedirs(nama_folder)
+    os.makedirs(nama_folder)
 
 ekstrak_file_zip(file_zip, file_wordlist)
