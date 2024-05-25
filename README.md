@@ -10,4 +10,4 @@ Instruksi instalasi ZipForce tersedia [disini](https://github.com/rofidoang03/Zi
 
 ## Penggunaan
 
-Instruksi cara penggunaan ZipForce tersedia [disini]().
+Instruksi penggunaan ZipForce tersedia [disini]().
