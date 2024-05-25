@@ -104,4 +104,4 @@ if __name__ == "__main__":
 
         
         # Menjalankan fungsi ekstrak_file_zip dengan parameter 'file_zip, folder, file_wordlist'.
-        ekstrak_file_zip(file_zip, folder, file_wordlist, file_log)
+        ekstrak_file_zip(file_zip, folder, file_log, file_wordlist)
