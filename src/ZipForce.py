@@ -63,10 +63,12 @@ folder_keluaran = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 if not os.path.exists(folder_keluaran):
         os.makedirs(folder_keluaran)
 
-nama_folder_yang_diekstrak = os.path.splitext(file_zip)[0]
+nama_file_dasar = os.path.splitext(file_zip)[0]
 
-if not os.path.exists(nama_folder_yang_diekstrak):
-        os.makedirs(nama_folder_yang_diekstrak)
+folder_keluaran = os.path.join(folder_keluaran, nama_file_dasar)
+
+if not os.path.exists(folder_keluaran):
+        os.makedirs(folder_keluaran)
 
 with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
         print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
