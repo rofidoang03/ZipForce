@@ -47,7 +47,7 @@ def banner():
 {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
 """)
 
-def ekstrak_file_zip(file_zip, file_log, file_wordlist):
+def ekstrak_file_zip(file_zip, file_log, folder, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
@@ -60,7 +60,7 @@ def ekstrak_file_zip(file_zip, file_log, file_wordlist):
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         list_file = fz.namelist()
                                         fz.pwd = kata_sandi.encode('latin-1')
-                                        fz.extractall()
+                                        fz.extractall(path = folder)
                                         with open(file_log, 'a') as log:
                                                 log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: '{h}{kata_sandi}{p}'{r}")
@@ -75,13 +75,20 @@ def ekstrak_file_zip(file_zip, file_log, file_wordlist):
 
 if __name__ == "__main__":       
 
-        # File untuk menyimpan Log ZipForce
+        # File untuk menyimpan Log ZipForce.
         file_log = "ZipForce.log"
-        
-        # Membuat file 'ZipForce.log' jika belum ada
+
+        # Membuat file 'ZipForce.log' jika belum ada.
         if not os.path.exists(file_log):
                 with open(file_log, 'w') as f:
                         f.write("[ZipForcre Log]\n")                       
+
+        # Folder untuk menyimpan hasil ekstraksi file zip.
+        folder = "Hasil Ekstraksi"
+
+        # Membuat folder 'Hasil Ekstraksi' jika belum ada.
+        if not os.path.exists(folder):
+                os.makedirs(folder)
         
         banner()
         
@@ -108,4 +115,4 @@ if __name__ == "__main__":
 
         
         # Menjalankan fungsi ekstrak_file_zip dengan parameter 'file_zip, folder, file_wordlist'.
-        ekstrak_file_zip(file_zip, file_log, file_wordlist)
+        ekstrak_file_zip(file_zip, file_log, folder, file_wordlist)
