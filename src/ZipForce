@@ -40,7 +40,7 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
 if __name__ == "__main__":       
 
         # folder untuk menyimpan file hasil ekstraksi
-        folder = "~/ZipForce/Hasil Ekstraksi"
+        folder = "Hasil Ekstraksi"
 
         if not os.path.exists(folder):
                 os.makedirs(folder)
