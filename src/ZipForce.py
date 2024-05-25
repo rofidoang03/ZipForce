@@ -47,6 +47,23 @@ def banner():
 {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
 """)
 
+def cek_isi_file_zip(file_zip):
+        with pyzipper.AESZipFile(zip_path, 'r') as fz:
+        # Dapatkan daftar nama file dalam file zip
+        list_file = fz.namelist()
+        c = 1        
+        for file in list_file:
+                # panjang karakter nama file zip
+                l = len(file_zip)
+                # membuat garis '-' untuk isi file zip
+                g = l + 14
+                print("Isi file zip {file_zip}:")
+                print("-" * g)
+            
+                for file in file_list:
+                    print(f"{c}. {file}")
+                    c += 1
+    
 def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
