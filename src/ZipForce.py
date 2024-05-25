@@ -31,7 +31,6 @@ import time
 import colorama
 import pyzipper
 
-# Mengatur warna teks menggunakan modul colorama
 h = colorama.Fore.LIGHTGREEN_EX
 b = colorama.Fore.LIGHTBLUE_EX
 m = colorama.Fore.LIGHTRED_EX
@@ -41,14 +40,12 @@ k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
 def ekstrak_file_zip(file_zip, nama_folder, file_wordlist):
-        # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
                 time.sleep(3)
                 for kata_sandi in wordlist:
                         kata_sandi = kata_sandi.strip()
 
-                        # Mengekstrak file zip dengan kata sandi
                         try:
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         fz.pwd = kata_sandi.encode('latin-1')
@@ -57,8 +54,7 @@ def ekstrak_file_zip(file_zip, nama_folder, file_wordlist):
                                         break
                         except Exception as e:
                                 print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
-
-# Meminta nama file zip dari pengguna
+                                
 while True:
         file_zip = input(f"{k}[?] {p}Nama file zip: ")
         if os.path.exists(file_zip):
@@ -70,8 +66,6 @@ while True:
         else:
                 print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
 
-
-# Meminta nama file wordlist dari pengguna
 while True:
         file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
         if os.path.exists(file_wordlist):
@@ -80,14 +74,12 @@ while True:
         else:
                 print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
 
-# Menentukan nama folder hasil ekstraksi
-nama_folder = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
+folder_keluaran = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 
-# Membuat folder jika belum ada
-if not os.path.exists(nama_folder):
-        os.makedirs(nama_folder)
-        nama_folder_ekstrasi = os.path.splitext(file_zip)[0]
-        if not os.path.exists(nama_folder_ekstrasi):
-                os.makedirs(nama_folder_ekstrasi)
+if not os.path.exists(folder_keluaran):
+        os.makedirs(folder_keluaran)
+        nama_folder_yang_diekstrak = os.path.splitext(file_zip)[0]
+        if not os.path.exists(nama_folder_yang_diekstrak):
+                os.makedirs(nama_folder_yang_diekstrak)
 
 ekstrak_file_zip(file_zip, nama_folder, file_wordlist)
