@@ -54,7 +54,7 @@ def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
                                         fz.pwd = kata_sandi.encode('latin-1')
                                         fz.extractall(path=folder)
                                         with open(file_log, 'a') as log:
-                                                log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n\n")
+                                                log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                         break
                         except Exception as e:
