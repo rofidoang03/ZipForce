@@ -39,7 +39,7 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-def ekstrak_file_zip(file_zip, file_wordlist):
+def ekstrak_file_zip(file_zip, nama_folder, file_wordlist):
         # Membuka file wordlist dan mencoba setiap kata sandi untuk mengekstrak file zip
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
@@ -51,7 +51,7 @@ def ekstrak_file_zip(file_zip, file_wordlist):
                         try:
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         fz.pwd = kata_sandi.encode('latin-1')
-                                        fz.extractall()
+                                        fz.extractall(path=nama_folder)
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                         break
                         except Exception as e:
@@ -78,5 +78,10 @@ while True:
                 break
         else:
                 print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
+
+nama_foler = "$HOME/ZipForce/Hasil Ekstraksi"
+
+if not os.path.exists(nama_folder):
+        os.makedirs(nama_folder)
 
 ekstrak_file_zip(file_zip, file_wordlist)
