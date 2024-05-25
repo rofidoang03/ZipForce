@@ -90,7 +90,7 @@ if __name__ == "__main__":
         if not os.path.exists(folder):
                 os.makedirs(folder)
                 
-         banner()  
+        banner()  
 
         # Memasukkan nama file zip.
         while True:
