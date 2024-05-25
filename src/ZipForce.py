@@ -7,7 +7,6 @@
 import os
 import sys
 import time
-import webbrowser
 
 # Jika terjadi error saat menginstal modul
 # Gunakan perintah ini:
@@ -47,7 +46,7 @@ def banner():
 {k}Dibuat oleh {p}: Rofi{r}
 {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
 """)
-
+        
 def ekstrak_file_zip(file_zip, file_log, folder, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
@@ -74,28 +73,25 @@ def ekstrak_file_zip(file_zip, file_log, folder, file_wordlist):
                         except Exception as e:
                                 print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: '{m}{kata_sandi}{p}'{r}")
 
-if __name__ == "__main__":       
-
-        url = "https://github.com/rofidoang03/ZipForce/"
-        webbrowser.open(url)
+if __name__ == "__main__":  
         
         # File untuk menyimpan Log ZipForce.
         file_log = "ZipForce.log"
-
+        
         # Membuat file 'ZipForce.log' jika belum ada.
         if not os.path.exists(file_log):
                 with open(file_log, 'w') as f:
-                        f.write("[ZipForcre Log]\n")                       
-
+                        f.write("[ZipForcre Log]\n")
+                        
         # Folder untuk menyimpan hasil ekstraksi file zip.
         folder = "Hasil Ekstraksi"
-
+        
         # Membuat folder 'Hasil Ekstraksi' jika belum ada.
         if not os.path.exists(folder):
                 os.makedirs(folder)
- 
-        banner()
-        
+                
+         banner()  
+
         # Memasukkan nama file zip.
         while True:
                 file_zip = input(f"{c}[»] {p} Masukkan jalur file zip : ")
@@ -107,16 +103,15 @@ if __name__ == "__main__":
                                 print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
                 else:
                         print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
-
         # Memasukkan nama file wordlist.
+
         while True:
                 file_wordlist = input(f"{c}[»] {p}Masukkan jalur file wordlist: ")
                 if os.path.exists(file_wordlist):
                         print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
                         break
                 else:
-                        print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
-
-        
+                        print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}") 
+                        
         # Menjalankan fungsi ekstrak_file_zip dengan parameter 'file_zip, folder, file_wordlist'.
         ekstrak_file_zip(file_zip, file_log, folder, file_wordlist)
