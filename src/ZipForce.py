@@ -39,16 +39,19 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-while True:
-        file_zip = input(f"{k}[?] {p}Nama file zip: ")
-        if os.path.exists(file_zip):
-                if file_zip.endswith('.zip'):
-                        print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
-                        break
+try:
+        while True:
+                file_zip = input(f"{k}[?] {p}Nama file zip: ")
+                if os.path.exists(file_zip):
+                        if file_zip.endswith('.zip'):
+                                print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
+                                break
+                        else:
+                                print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
                 else:
-                        print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
-        else:
-                print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
+                        print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
+except KeyboardInterrupt:
+        print("Keluar...")
 
 while True:
         file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
