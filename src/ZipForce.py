@@ -85,6 +85,9 @@ nama_folder = os.path.expanduser("~/ZipForce/Hasil Ekstraksi")
 
 # Membuat folder jika belum ada
 if not os.path.exists(nama_folder):
-    os.makedirs(nama_folder)
+        os.makedirs(nama_folder)
+        nama_folder_ekstrasi = os.path.splitext(file_zip)[0]
+        if not os.path.exists(nama_folder_ekstrasi):
+                os.makedirs(nama_folder_ekstrasi)
 
 ekstrak_file_zip(file_zip, nama_folder, file_wordlist)
