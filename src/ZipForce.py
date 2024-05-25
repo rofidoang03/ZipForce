@@ -42,7 +42,7 @@ if __name__ == "__main__":
         # folder untuk menyimpan file hasil ekstraksi
         folder = "~/ZipForce/Hasil Ekstraksi"
 
-        if not os.path.exists:
+        if not os.path.exists():
                 os.makedirs(folder)
 
         while True:
