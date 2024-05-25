@@ -6,7 +6,7 @@ ZipForce</h1>
 
 <p align="center">[ <a href="">Instalasi</a> | <a href="">Penggunaan</a> ]</p>
 
-`ZipForce` adalah sebuah program sederhana yang ditulis dalam Python, yang bertujuan untuk melakukan ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.
+`ZipForce` adalah sebuah program sederhana yang ditulis dalam Python oleh `Rofi`. Program ini bertujuan untuk melakukan ekstraksi pada file zip yang terlindungi oleh kata sandi dengan menggunakan wordlist.
 
 ## Instalasi 
 
