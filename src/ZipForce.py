@@ -40,6 +40,16 @@ p = colorama.Fore.LIGHTWHITE_EX  # Putih terang
 k = colorama.Fore.LIGHTYELLOW_EX # Kuning terang 
 r = colorama.Style.RESET_ALL     # Reset 
 
+def banner():
+        print("""
+            ╔═╗  ╦  ╔═╗  ╔═╗  ╔═╗  ╦═╗  ╔═╗  ╔═╗  
+            ╔═╝  ║  ╠═╝  ╠╣   ║ ║  ╠╦╝  ║    ║╣   
+            ╚═╝  ╩  ╩    ╚    ╚═╝  ╩╚═  ╚═╝  ╚═╝                          
+Ekstrak file zip yang dilindungi kata sandi menggunakan wordlist
+                       Dibuat oleh : Rofi                                                                             
+        Github: https://github.com/rofidoang03/ZipForce/                                                     
+""")
+
 def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
@@ -79,6 +89,8 @@ if __name__ == "__main__":
         if not os.path.exists(folder):
                 os.makedirs(folder)
 
+        banner()
+        
         # Memasukkan nama file zip.
         while True:
                 file_zip = input(f"{k}[?] {p}Nama file zip: ")
