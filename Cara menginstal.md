@@ -15,7 +15,7 @@ apt-get update -y
 2. Menginstal dependensi yang diperlukan ZipForce.
 
 ```
-apt-get install python3 -y ; apt-get install python3-pip -y ; apt-get install python3.11-venv -y ; apt-get install git -y
+apt-get install python3 -y ; apt-get install python3-pip -y ; apt-get install python3.11-venv -y ; pip3 install --upgrade pip ; apt-get install git -y
 ```
 
 3. Pindah ke direktori rumah pengguna.
