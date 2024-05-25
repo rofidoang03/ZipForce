@@ -64,9 +64,17 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
 
 if __name__ == "__main__":       
 
-        # folder untuk menyimpan file hasil ekstraksi.
+        # File untuk menyimpan Log ZipForce
+        file = "ZipForce.log"
+        
+        # Folder untuk menyimpan file hasil ekstraksi.
         folder = "Hasil Ekstraksi"
 
+        # Membuat file 'ZipForce.log' jika belum ada
+        if not os.path.exists(file):
+                with open(file, 'w') as f:
+                        f.write("ZipForcre Log:\n")                       
+        
         # Membuat folder 'Hasil Ekstraksi' jika belum ada.
         if not os.path.exists(folder):
                 os.makedirs(folder)
