@@ -73,3 +73,7 @@ with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                                 break
                 except Exception as e:
                         print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
+        else:
+                print(f"{k}[!] {p}Tidak ada kata sandi yang cocok dalam file wordlist '{file_wordlist}'.{r}")
+                sys.exit(0)
+        
