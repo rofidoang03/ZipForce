@@ -42,13 +42,13 @@ r = colorama.Style.RESET_ALL     # Reset
 
 def banner():
         print("""
-            ╔═╗  ╦  ╔═╗  ╔═╗  ╔═╗  ╦═╗  ╔═╗  ╔═╗  
-            ╔═╝  ║  ╠═╝  ╠╣   ║ ║  ╠╦╝  ║    ║╣   
-            ╚═╝  ╩  ╩    ╚    ╚═╝  ╩╚═  ╚═╝  ╚═╝                          
-Ekstrak file zip yang dilindungi kata sandi menggunakan wordlist
-                       Dibuat oleh : Rofi
-        Github: https://github.com/rofidoang03/ZipForce/    
-""")
+            {b}╔═╗  ╦  ╔═╗  ╔═╗  ╔═╗  ╦═╗  ╔═╗  ╔═╗{r}
+            {b}╔═╝  ║  ╠═╝  ╠╣   ║ ║  ╠╦╝  ║    ║╣{r}
+            {b}╚═╝  ╩  ╩    ╚    ╚═╝  ╩╚═  ╚═╝  ╚═╝{r}              
+{p}Ekstrak file zip yang dilindungi kata sandi menggunakan wordlist{r}
+                       {k}Dibuat oleh {p}: Rofi{r}
+        {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
+{r}""")
 
 def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
