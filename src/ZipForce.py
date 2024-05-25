@@ -46,8 +46,8 @@ def banner():
             ╔═╝  ║  ╠═╝  ╠╣   ║ ║  ╠╦╝  ║    ║╣   
             ╚═╝  ╩  ╩    ╚    ╚═╝  ╩╚═  ╚═╝  ╚═╝                          
 Ekstrak file zip yang dilindungi kata sandi menggunakan wordlist
-                       Dibuat oleh : Rofi                                                                             
-        Github: https://github.com/rofidoang03/ZipForce/                                                     
+                       Dibuat oleh : Rofi
+        Github: https://github.com/rofidoang03/ZipForce/    
 """)
 
 def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
