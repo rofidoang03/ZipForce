@@ -57,7 +57,7 @@ def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
                                                 log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: '{h}{kata_sandi}{p}'{r}")
                                         print(f"{h}[+] {p}File yang berhasil diekstrak disimpan di folder '{h}Hasil Ekstraksi'{p}.{r}")
-                                        print(f"{h}[+] {p}Kata sandi yang berhasil ditemukan disimpan di file Log: '{h}ZipForce.log{p}'.${r}")
+                                        print(f"{h}[+] {p}Kata sandi yang berhasil ditemukan disimpan di file Log: '{h}ZipForce.log{p}'.{r}")
                                         break
                         except Exception as e:
                                 print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: '{m}{kata_sandi}{p}'{r}")
