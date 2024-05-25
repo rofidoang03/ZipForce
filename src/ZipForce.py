@@ -40,7 +40,7 @@ p = colorama.Fore.LIGHTWHITE_EX  # Putih terang
 k = colorama.Fore.LIGHTYELLOW_EX # Kuning terang 
 r = colorama.Style.RESET_ALL     # Reset 
 
-def ekstrak_file_zip(file_zip, folder, file_wordlist):
+def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
@@ -52,10 +52,9 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
                                 # Membuka file zip dengan pyzipper dan mencoba kata sandi.
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         fz.pwd = kata_sandi.encode('latin-1')
-                                        log = "ZipForce.log"
                                         fz.extractall(path=folder)
-                                        with open(log, 'a') as l:
-                                                l.write(f"{kata_sandi}:{file_zip}:{kata_sandi}")
+                                        with open(file_log, 'a') as log:
+                                                log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                         break
                         except Exception as e:
@@ -68,14 +67,14 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
 if __name__ == "__main__":       
 
         # File untuk menyimpan Log ZipForce
-        file = "ZipForce.log"
+        file_log = "ZipForce.log"
         
         # Folder untuk menyimpan file hasil ekstraksi.
         folder = "Hasil Ekstraksi"
 
         # Membuat file 'ZipForce.log' jika belum ada
-        if not os.path.exists(file):
-                with open(file, 'w') as f:
+        if not os.path.exists(file_log):
+                with open(file_log, 'w') as f:
                         f.write("[ZipForcre Log]\n")                       
         
         # Membuat folder 'Hasil Ekstraksi' jika belum ada.
@@ -105,4 +104,4 @@ if __name__ == "__main__":
 
         
         # Menjalankan fungsi ekstrak_file_zip dengan parameter 'file_zip, folder, file_wordlist'.
-        ekstrak_file_zip(file_zip, folder, file_wordlist)
+        ekstrak_file_zip(file_zip, folder, file_wordlist, file_log)
