@@ -27,6 +27,7 @@
 # SOFTWARE.
 
 import os
+import sys
 import time
 import colorama
 import pyzipper
@@ -46,8 +47,10 @@ if os.path.exists(file_zip):
                 print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
         else:
                 print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
+                sys.exit(1)
 else:
         print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
+        sys.exit(1)
         
 file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
                 
@@ -55,7 +58,7 @@ if os.path.exists(file_wordlist):
         print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
 else:
         print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
-
+        sys.exit(1)
 
 with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
         print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
