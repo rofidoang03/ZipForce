@@ -10,9 +10,9 @@ import time
 
 # Jika terjadi error saat menginstal modul
 # Gunakan perintah ini:
-# 1. python3 -m venv modules
-# 2. source modules/bin/activate
-# 3. pip3 install <modules>
+# 1. python3 -m venv modul
+# 2. source modul/bin/activate
+# 3. pip3 install <modul>
 #
 # Misalnya: pip3 install colorama 
 
@@ -27,6 +27,7 @@ except ImportError:
         print("Error: Modul pyzipper belum diinstal. Mohon instal dengan menjalankan perintah 'pip3 install pyzipper'.")
         sys.exit(1)
 
+# Variabel untuk mengatur warna output menggunakan modul colorama
 h = colorama.Fore.LIGHTGREEN_EX
 b = colorama.Fore.LIGHTBLUE_EX
 m = colorama.Fore.LIGHTRED_EX
@@ -59,9 +60,11 @@ if __name__ == "__main__":
         # folder untuk menyimpan file hasil ekstraksi
         folder = "Hasil Ekstraksi"
 
+        # Membuat folder 'Hasil Ekstraksi'
         if not os.path.exists(folder):
                 os.makedirs(folder)
 
+        # Memasukkan nama file zip 
         while True:
                 file_zip = input(f"{k}[?] {p}Nama file zip: ")
                 if os.path.exists(file_zip):
@@ -72,7 +75,8 @@ if __name__ == "__main__":
                                 print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
                 else:
                         print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
-                        
+
+        # Memasukkan nama file wordlist 
         while True:
                 file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
                 if os.path.exists(file_wordlist):
