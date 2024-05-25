@@ -39,7 +39,7 @@ p = colorama.Fore.LIGHTWHITE_EX
 k = colorama.Fore.LIGHTYELLOW_EX
 r = colorama.Style.RESET_ALL
 
-def ekstrak_file_zip(file_zip, nama_folder, file_wordlist):
+def ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist):
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 print(f"\n{b}[*] {p}Mulai ekstraksi. Saat dimulai tekan [CTRL+C] untuk berhenti.{r}\n")
                 time.sleep(3)
@@ -82,4 +82,4 @@ if not os.path.exists(folder_keluaran):
         if not os.path.exists(nama_folder_yang_diekstrak):
                 os.makedirs(nama_folder_yang_diekstrak)
 
-ekstrak_file_zip(file_zip, nama_folder, file_wordlist)
+ekstrak_file_zip(file_zip, nama_folder_yang_diekstrak, file_wordlist)
