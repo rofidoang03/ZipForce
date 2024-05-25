@@ -32,13 +32,13 @@ except ImportError:
         sys.exit(1)
 
 # Variabel untuk mengatur warna output teks menggunakan modul colorama
-h = colorama.Fore.LIGHTGREEN_EX
-b = colorama.Fore.LIGHTBLUE_EX
-m = colorama.Fore.LIGHTRED_EX
-c = colorama.Fore.LIGHTCYAN_EX
-p = colorama.Fore.LIGHTWHITE_EX
-k = colorama.Fore.LIGHTYELLOW_EX
-r = colorama.Style.RESET_ALL
+h = colorama.Fore.LIGHTGREEN_EX  # Hijau terang 
+b = colorama.Fore.LIGHTBLUE_EX   # Biru terang 
+m = colorama.Fore.LIGHTRED_EX    # Merah terang 
+c = colorama.Fore.LIGHTCYAN_EX   # Cyan terang 
+p = colorama.Fore.LIGHTWHITE_EX  # Putih terang 
+k = colorama.Fore.LIGHTYELLOW_EX # Kuning terang 
+r = colorama.Style.RESET_ALL     # Reset 
 
 def ekstrak_file_zip(file_zip, folder, file_wordlist):
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
