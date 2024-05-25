@@ -47,23 +47,6 @@ def banner():
 {k}Github {p}: https://github.com/rofidoang03/ZipForce/{r}
 """)
 
-def cek_isi_file_zip(file_zip):
-        with pyzipper.AESZipFile(zip_path, 'r') as fz:
-                # Dapatkan daftar nama file dalam file zip
-                list_file = fz.namelist()
-                c = 1        
-                for file in list_file:
-                        # panjang karakter nama file zip
-                        l = len(file_zip)
-                        # membuat garis '-' untuk isi file zip
-                        g = l + 14
-                        print("Isi file zip {file_zip}:")
-                        print("-" * g)
-            
-                        for file in file_list:
-                            print(f"{c}. {file}")
-                            c += 1
-    
 def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
         # Membuka file wordlist dengan encoding latin-1.
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
@@ -75,11 +58,15 @@ def ekstrak_file_zip(file_zip, folder, file_log, file_wordlist):
                         try:
                                 # Membuka file zip dengan pyzipper dan mencoba kata sandi.
                                 with pyzipper.AESZipFile(file_zip) as fz:
+                                        list_file = fz.namelist()
                                         fz.pwd = kata_sandi.encode('latin-1')
                                         fz.extractall(path=folder)
                                         with open(file_log, 'a') as log:
                                                 log.write(f"{kata_sandi}:{file_zip}:{kata_sandi}\n")
                                         print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: '{h}{kata_sandi}{p}'{r}")
+                                        print("[+] Isi file zip yang berhasil diekstrak:")
+                                        for file in list_file:
+                                                print(f"    {p}- {h}{file}{r}")
                                         print(f"{h}[+] {p}File yang berhasil diekstrak disimpan di folder '{h}Hasil Ekstraksi'{p}.{r}")
                                         print(f"{h}[+] {p}Kata sandi yang berhasil ditemukan disimpan di file Log: '{h}ZipForce.log{p}'.{r}")
                                         break
