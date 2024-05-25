@@ -7,8 +7,16 @@
 import os
 import sys
 import time
-import colorama
-import pyzipper
+try:
+        import colorama
+except ImportError:
+        print("Error: Modul colorama belum diinstal. Mohon instal dengan menjalankan perintah 'pip3 install colorama'.")
+        sys.exit(1)
+try:
+        import pyzipper
+except ImportError:
+        print("Error: Modul pyzipper belum diinstal. Mohon instal dengan menjalankan perintah 'pip3 install pyzipper'.")
+        sys.exit(1)
 
 h = colorama.Fore.LIGHTGREEN_EX
 b = colorama.Fore.LIGHTBLUE_EX
