@@ -53,13 +53,16 @@ try:
 except KeyboardInterrupt:
         print("Keluar...")
 
-while True:
-        file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
-        if os.path.exists(file_wordlist):
-                print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
-                break
-        else:
-                print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
+try:
+        while True:
+                file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
+                if os.path.exists(file_wordlist):
+                        print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
+                        break
+                else:
+                        print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
+except KeyboardInterrupt:
+        print("Keluar...")
 
 try:
         with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
