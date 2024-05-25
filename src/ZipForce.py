@@ -34,7 +34,7 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
                                 print(f"{m}[-] {p}File zip gagal diekstrak dengan kata sandi: {m}{kata_sandi}{r}")
                 else:
                         print(f"{k}[!] {p}Tidak ada kata sandi yang cocok dalam file wordlist '{file_wordlist}'.{r}")
-                        sys.exit(0)
+                        sys.exit()
                 
 
 if __name__ == "__main__":       
@@ -50,19 +50,18 @@ if __name__ == "__main__":
                 if os.path.exists(file_zip):
                         if file_zip.endswith('.zip'):
                                 print(f"{h}[+] {p}File zip {file_zip} ditemukan.{r}")
+                                break
                         else:
                                 print(f"{m}[-] {p}File {file_zip} bukan file zip.{r}")
-                                sys.exit(1)
                 else:
                         print(f"{m}[-] {p}File {file_zip} tidak ditemukan.{r}")
-                        sys.exit(1)
                         
         while True:
                 file_wordlist = input(f"{k}[?] {p}Nama file wordlist: ")
                 if os.path.exists(file_wordlist):
                         print(f"{h}[+] {p}File wordlist {file_wordlist} ditemukan.{r}")
+                        break
                 else:
                         print(f"{m}[-] {p}File {file_wordlist} tidak ditemukan.{r}")
-                        sys.exit(1)
 
         ekstrak_file_zip(file_zip, folder, file_wordlist)
