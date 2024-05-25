@@ -48,10 +48,12 @@ def ekstrak_file_zip(file_zip, folder, file_wordlist):
                 # Membaca setiap kata sandi dari file wordlist.
                 for kata_sandi in wordlist:
                         kata_sandi = kata_sandi.strip()
+                        kata_sandi = False
                         try:
                                 # Membuka file zip dengan pyzipper dan mencoba kata sandi.
                                 with pyzipper.AESZipFile(file_zip) as fz:
                                         fz.pwd = kata_sandi.encode('latin-1')
+                                        kata_sandi = True
                                         log = "ZipFore.log"
                                         with open(log, 'a') as l:
                                                 l.write(f"{kata_sandi}:{file_zip}:{kata_sandi}")
