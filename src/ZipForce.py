@@ -7,7 +7,7 @@
 import os
 import sys
 import time
-import hashlib
+import webbrowser
 
 # Jika terjadi error saat menginstal modul
 # Gunakan perintah ini:
@@ -76,6 +76,9 @@ def ekstrak_file_zip(file_zip, file_log, folder, file_wordlist):
 
 if __name__ == "__main__":       
 
+        url = "https://github.com/rofidoang03/ZipForce/"
+        webbrowser.open(url)
+        
         # File untuk menyimpan Log ZipForce.
         file_log = "ZipForce.log"
 
