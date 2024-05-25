@@ -66,7 +66,7 @@ with open(file_wordlist, 'r', encoding="latin-1", errors="ignore") as wordlist:
                 try:
                         with pyzipper.AESZipFile(file_zip) as fz:
                                 fz.pwd = kata_sandi.encode('latin-1')
-                                fz.extractall(path=nama_folder_yang_diekstrak)
+                                fz.extractall()
                                 print(f"{h}[+] {p}File zip berhasil diekstrak dengan kata sandi: {h}{kata_sandi}{r}")
                                 break
                 except Exception as e:
