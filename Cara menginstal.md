@@ -21,7 +21,7 @@ apt-get install python3 -y ; apt-get install python3-pip -y ; apt-get install py
 3. Pindah ke direktori rumah pengguna.
 
 ```
-cd $HOME
+cd ~
 ```
 
 4. Meng-kloning repositori ZipForce dari Github. 
